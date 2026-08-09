@@ -1,0 +1,15 @@
+{
+  "note": "Demonstrates orchestrator rule 3: mapping idea-analysis output fields into market-research's input schema, not passing the raw idea-analysis JSON as-is.",
+  "source_artifact": "skills/idea-analysis/examples/project-noor.json (expected_output_shape)",
+  "mapped_market_research_input": {
+    "idea": "A facility in Rashid, Beheira that converts agricultural waste into four saleable products — activated carbon, biochar, wood vinegar, and wood pellets — for both the Egyptian market and export.",
+    "market": "Activated carbon / biochar / agricultural waste valorization",
+    "country": "Egypt",
+    "target_customer": "Domestic industrial buyers and export markets",
+    "assumptions_to_validate": [
+      "Sufficient, consistent agricultural waste feedstock is available near Rashid year-round",
+      "Export markets will pay a premium over domestic price for activated carbon"
+    ]
+  },
+  "mapping_rule_applied": "idea_summary -> idea; target_segments/target_customer -> target_customer; location -> country; assumptions where needs_validation_by == 'market-research' -> assumptions_to_validate. The 'feasibility-study'-tagged assumption (land/equipment) is correctly excluded here — it stays for feasibility-study to handle later."
+}
