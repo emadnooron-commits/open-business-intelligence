@@ -1,0 +1,19 @@
+id: market-research
+name: Market Research
+version: 0.1.0
+description: >
+  Researches demand, trends, opportunities, and risks for a given idea in a
+  given market/country. Consumes idea-analysis output as context and
+  validates the market-facing assumptions it flagged.
+phase: foundation
+depends_on:
+  - idea-analysis
+input_schema: schema.json#/input
+output_schema: schema.json#/output
+artifacts:
+  - report.md
+  - data.json
+  - sources.json
+provider_requirements:
+  llm: true
+  research: true
