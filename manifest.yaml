@@ -1,0 +1,20 @@
+id: competitor-analysis
+name: Competitor Analysis
+version: 0.1.0
+description: >
+  Identifies direct and indirect competitors/alternatives for the idea in
+  its market, compares positioning, and surfaces differentiation gaps the
+  idea can exploit or must address.
+phase: foundation
+depends_on:
+  - idea-analysis
+  - market-research
+input_schema: schema.json#/input
+output_schema: schema.json#/output
+artifacts:
+  - report.md
+  - data.json
+  - sources.json
+provider_requirements:
+  llm: true
+  research: true

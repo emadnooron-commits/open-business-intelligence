@@ -1,0 +1,66 @@
+{
+  "input": {
+    "$schema": "http://json-schema.org/draft-07/schema#",
+    "title": "competitor-analysis.input",
+    "type": "object",
+    "required": ["idea", "market"],
+    "properties": {
+      "idea": { "type": "string", "description": "Mapped from idea-analysis.idea_summary" },
+      "value_proposition": { "type": "string", "description": "Mapped from idea-analysis.value_proposition" },
+      "market": { "type": "string", "description": "Mapped from market-research.market_overview / input.market" },
+      "country": { "type": "string" },
+      "known_opportunities": {
+        "type": "array",
+        "items": { "type": "string" },
+        "description": "Mapped from market-research.opportunities, to check which competitors already occupy them"
+      }
+    }
+  },
+  "output": {
+    "$schema": "http://json-schema.org/draft-07/schema#",
+    "title": "competitor-analysis.output",
+    "type": "object",
+    "required": ["competitors", "differentiation_gaps", "sources"],
+    "properties": {
+      "competitive_landscape_summary": { "type": "string" },
+      "competitors": {
+        "type": "array",
+        "items": {
+          "type": "object",
+          "required": ["name", "type"],
+          "properties": {
+            "name": { "type": "string" },
+            "type": { "type": "string", "enum": ["direct", "indirect", "substitute"] },
+            "positioning": { "type": "string" },
+            "strengths": { "type": "array", "items": { "type": "string" } },
+            "weaknesses": { "type": "array", "items": { "type": "string" } },
+            "estimated_scale": { "type": "string", "description": "e.g. 'local/small', 'regional', 'national/large' — omit if unknown, never invent a number" }
+          }
+        }
+      },
+      "differentiation_gaps": {
+        "type": "array",
+        "items": { "type": "string" },
+        "description": "Where existing competitors are weak or absent — candidate angles for the idea"
+      },
+      "competitive_risks": {
+        "type": "array",
+        "items": { "type": "string" },
+        "description": "Ways competitors could respond to or block the idea"
+      },
+      "sources": {
+        "type": "array",
+        "items": {
+          "type": "object",
+          "required": ["title", "url"],
+          "properties": {
+            "title": { "type": "string" },
+            "url": { "type": "string" },
+            "publisher": { "type": "string" },
+            "date": { "type": "string" }
+          }
+        }
+      }
+    }
+  }
+}
