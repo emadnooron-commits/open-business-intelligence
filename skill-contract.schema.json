@@ -1,0 +1,48 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "https://obi-skills.org/schemas/skill-contract.schema.json",
+  "title": "OBI Skill Contract",
+  "description": "Base contract every skill's manifest.yaml must satisfy.",
+  "type": "object",
+  "required": ["id", "name", "version", "description", "input_schema", "output_schema", "artifacts"],
+  "properties": {
+    "id": {
+      "type": "string",
+      "pattern": "^[a-z0-9-]+$",
+      "description": "Unique kebab-case skill id, matches folder name (e.g. 'idea-analysis')"
+    },
+    "name": { "type": "string" },
+    "version": { "type": "string", "pattern": "^\\d+\\.\\d+\\.\\d+$" },
+    "description": { "type": "string" },
+    "phase": {
+      "type": "string",
+      "enum": ["foundation", "business", "feasibility", "strategy", "finalization"]
+    },
+    "depends_on": {
+      "type": "array",
+      "items": { "type": "string" },
+      "description": "Skill ids this skill expects as prior artifacts (e.g. market-research depends_on idea-analysis)"
+    },
+    "input_schema": {
+      "type": "string",
+      "description": "Relative path to this skill's input JSON schema (e.g. 'schema.json#/input')"
+    },
+    "output_schema": {
+      "type": "string",
+      "description": "Relative path to this skill's output JSON schema (e.g. 'schema.json#/output')"
+    },
+    "artifacts": {
+      "type": "array",
+      "items": { "type": "string" },
+      "description": "Files this skill must produce, e.g. ['report.md', 'data.json', 'sources.json']"
+    },
+    "provider_requirements": {
+      "type": "object",
+      "properties": {
+        "llm": { "type": "boolean", "default": true },
+        "research": { "type": "boolean", "default": false }
+      },
+      "description": "Declares whether this skill needs an LLM Provider Interface and/or a Research Interface, without naming a specific vendor"
+    }
+  }
+}
