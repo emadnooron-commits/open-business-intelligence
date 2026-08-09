@@ -1,0 +1,18 @@
+id: idea-analysis
+name: Idea Analysis
+version: 0.1.0
+description: >
+  First-pass structured analysis of a raw business idea: clarifies the idea,
+  extracts assumptions, identifies the core value proposition, and flags what
+  other skills should run next.
+phase: foundation
+depends_on: []
+input_schema: schema.json#/input
+output_schema: schema.json#/output
+artifacts:
+  - report.md
+  - data.json
+  - sources.json
+provider_requirements:
+  llm: true
+  research: false
