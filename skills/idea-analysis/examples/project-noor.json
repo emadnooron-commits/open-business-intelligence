@@ -1,0 +1,45 @@
+{
+  "input": {
+    "idea": "Recycling agricultural waste into activated carbon, biochar, wood vinegar, and wood pellets",
+    "location": "Rashid, Beheira, Egypt",
+    "target_customer": "Mix of domestic (Egypt) and export buyers",
+    "known_constraints": [
+      "Idea stage only — no land or equipment secured yet",
+      "Capital/funding not yet determined",
+      "Target capacity: 10 t/day activated carbon, 20 t/day biochar, 10 t/day wood pellets"
+    ]
+  },
+  "expected_output_shape": {
+    "idea_summary": "A facility in Rashid, Beheira that converts agricultural waste into four saleable products — activated carbon, biochar, wood vinegar, and wood pellets — for both the Egyptian market and export.",
+    "value_proposition": "For agricultural producers and industrial buyers in Egypt, this facility turns crop waste into higher-value carbon products, unlike current waste disposal that captures none of that value.",
+    "assumptions": [
+      {
+        "assumption": "Sufficient, consistent agricultural waste feedstock is available near Rashid year-round",
+        "confidence": "medium",
+        "needs_validation_by": "feasibility-study"
+      },
+      {
+        "assumption": "Export markets will pay a premium over domestic price for activated carbon",
+        "confidence": "low",
+        "needs_validation_by": "market-research"
+      },
+      {
+        "assumption": "Required land and equipment can be secured within budget",
+        "confidence": "low",
+        "needs_validation_by": "feasibility-study"
+      }
+    ],
+    "open_questions": [
+      "Is any funding source already identified, or is this fully unfunded?",
+      "Is land in Rashid already zoned for industrial/processing use?",
+      "Which product (activated carbon, biochar, wood vinegar, pellets) is the primary revenue driver vs. a byproduct?"
+    ],
+    "risks_preview": [
+      "Feedstock supply may be seasonal, requiring storage capacity",
+      "Four product lines at once increases operational complexity for a first-time facility",
+      "Export logistics/certification requirements unknown at idea stage"
+    ],
+    "recommended_next_skills": ["market-research", "feasibility-study", "financial-analysis"]
+  },
+  "note": "This is a worked example for testing the skill, not a validated business assessment."
+}
