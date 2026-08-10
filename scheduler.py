@@ -1,3 +1,6 @@
+from agents.agent import research_agent
+
+
 class Scheduler:
 
     def __init__(self):
@@ -17,17 +20,30 @@ class Scheduler:
 
         return self.tasks.pop(0)
 
+    def assign_agent(self, task):
+
+        if research_agent.can_do(task["skill"]):
+            return research_agent
+
+        return None
+
 
 scheduler = Scheduler()
 
 scheduler.add_task({
     "id": "NOOR-001",
-    "title": "Market Research",
+    "title": "Research charcoal competitors",
+    "skill": "competitor_analysis",
     "priority": 10
 })
 
-scheduler.add_task({
-    "id": "NOOR-002",
-    "title": "Competitor Analysis",
-    "priority": 8
-})
+task = scheduler.next_task()
+
+agent = scheduler.assign_agent(task)
+
+print("Task:", task["title"])
+
+if agent:
+    print("Assigned Agent:", agent.name)
+else:
+    print("No suitable Agent found")
