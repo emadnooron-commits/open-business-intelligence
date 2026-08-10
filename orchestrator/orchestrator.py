@@ -8,7 +8,7 @@ ROOT = Path(__file__).resolve().parent.parent
 def load_skill(skill_name):
     skill_path = ROOT / "skills" / skill_name
 
-    manifest = skill_path / "manifest.yaml"
+    manifest = ROOT / "orchestrator" / "skills" / skill_name / "manifest.yaml"
     instructions = skill_path / "skills" / skill_name / "SKILL.md"
     schema = skill_path / "schema.json"
 
